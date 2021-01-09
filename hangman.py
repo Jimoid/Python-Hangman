@@ -62,12 +62,15 @@ def play():
         player_guesses.append(guess)
         check_guess(guess)
 
+        print (blanked_word)
         print ("\nYour guesses are: " + str(player_guesses))
+        print ("You have " + str(9 - number_wrong_guesses) + " guesses remaining.\n\n\n")
         play()
 
     elif check_status() == "next_guess" and number_wrong_guesses == 10:
 
-        print("Too bad partner, you lost. Better luck next time :-)")
+        print ("\nToo bad partner, you lost. Better luck next time :-)\n")
+        print ("The word you were looking for was: " + game_word)
         exit()
 
     elif check_status() == "winner":
@@ -124,7 +127,7 @@ def check_guess(guess):
             blanked_word_list = list(blanked_word)
             blanked_word_list[(substring_idx*2)] = guess
             blanked_word = "".join(blanked_word_list)
-            print (blanked_word)
+            #print (blanked_word)
 
 
     else:
