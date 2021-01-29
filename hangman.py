@@ -1,7 +1,9 @@
 #!/usr/bin/env python
+import sys
+import os
 import random
 
-game_dictionary = '/home/jimmy/Code/Python/Python-Hangman/dictionary_850_words.txt'
+game_dictionary = 'dictionary_850_words.txt'
 game_word = ""
 game_word_letters = []
 blanked_word = ""
@@ -27,7 +29,7 @@ def welcome():
 
 
 def random_word():
-    with open(game_dictionary) as f:
+    with open(os.path.join(sys.path[0], game_dictionary), "r") as f:
 
         #variable to hold the dictionary of words used in the game
         dictionary_data = f.read().splitlines()
